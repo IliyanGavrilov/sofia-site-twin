@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.ipynb_checkpoints/
+
+# Local config
+.env
+.envrc
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Downloaded and generated data (fetched by the ingest pipelines, never committed)
+data/*
+!data/.gitkeep
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.prj

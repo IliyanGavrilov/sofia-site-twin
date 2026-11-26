@@ -1,0 +1,6 @@
+# Test + lint tooling on top of the runtime deps. CI-only security scanners
+# (pip-audit, bandit) are installed in the Security workflow instead.
+-r requirements.txt
+
+pytest==9.2.0
+ruff==0.17.6

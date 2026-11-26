@@ -1,0 +1,11 @@
+# Ingestion and storage: the GIS stack. Not needed to run the app or the tests.
+-r requirements.txt
+
+GeoAlchemy2==0.21.0
+geopandas==1.2.0
+h3==4.5.1
+osmnx==2.2.0
+psycopg[binary]==3.3.9
+pyproj==3.8.0
+shapely==2.2.0
+SQLAlchemy==2.1.9

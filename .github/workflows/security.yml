@@ -1,0 +1,32 @@
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1" # weekly, to catch CVEs disclosed after a merge
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+
+      - name: Install scanners
+        run: pip install pip-audit bandit
+
+      - name: Known CVEs in dependencies
+        run: pip-audit -r requirements.txt -r requirements-geo.txt
+
+      - name: Python security lint
+        run: bandit -r sitetwin ingest app
